@@ -27,15 +27,17 @@ back_img = Image.open("back_image/back.jpg")
 title_text = "アニメタイトル"
 
 files = glob.glob("images/*.png")
-for index, file in enumerate(files):
-    print(index,file)
-    img = Image.open(file).convert('RGBA')
 
-    for i in range(5):
+def main():
+    for index, file in enumerate(files):
+        print(index,file)
+        img = Image.open(file).convert('RGBA')
 
-        number_text = 5*index+(i+1)
+        for i in range(5):
 
-        img = create_Layout(title_text, i)
-        draw_text(img, title_text, 40, 500, 130)
-        draw_text(img, str(number_text), 40, 1350, 130)
-        img.save(f'result/{title_text}_{number_text}.png', quality=95)
+            number_text = 5*index+(i+1)
+
+            img = create_Layout(title_text, i)
+            draw_text(img, title_text, 40, 500, 130)
+            draw_text(img, str(number_text), 40, 1350, 130)
+            img.save(f'result/{title_text}_{number_text}.png', quality=95)
